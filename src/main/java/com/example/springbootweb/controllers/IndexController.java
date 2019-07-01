@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
+@RequestMapping("/app")
 public class IndexController {
 
     /**
@@ -19,7 +20,7 @@ public class IndexController {
      */
     @GetMapping({"/index", "/"})
     public String index(Model model) {
-        model.addAttribute("title", "Spring Index");
+        model.addAttribute("title", "Spring Index Model");
         return "index";
     }
 
@@ -31,7 +32,7 @@ public class IndexController {
     @GetMapping("/home")
     public ModelAndView home(ModelAndView mv) {
         mv.setViewName("index");
-        mv.addObject("title", "Spring Home");
+        mv.addObject("title", "Spring Home ModelAndView");
         return mv;
     }
 }
