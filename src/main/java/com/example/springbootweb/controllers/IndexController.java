@@ -36,14 +36,4 @@ public class IndexController {
         return mv;
     }
 
-    @GetMapping("/profile")
-    public String profile(Model model) {
-        User user = new User();
-        user.setName("Carlos");
-        user.setLastName("Jaramillo");
-
-        model.addAttribute("user", user);
-        model.addAttribute("title", "User Profile");
-        return "profile";
-    }
 }

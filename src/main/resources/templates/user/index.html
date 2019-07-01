@@ -5,8 +5,6 @@
     <title th:text="${title}"></title>
 </head>
 <body>
-    <h1 th:text="${user.getName()}"></h1>
-    <h2 th:text="${user.lastName}"></h2>
-
+    <div th:if="${users.size() == 0}">No users found</div>
 </body>
 </html>

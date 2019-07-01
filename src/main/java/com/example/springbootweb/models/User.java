@@ -4,6 +4,7 @@ public class User {
 
     private String name;
     private String lastName;
+    private String email;
 
     public String getName() {
 
@@ -22,4 +23,11 @@ public class User {
         this.lastName = lastName;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 }
