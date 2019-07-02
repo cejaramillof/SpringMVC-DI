@@ -24,13 +24,12 @@ public class UserController {
 
     @GetMapping("/show")
     public String show(@RequestParam(name="userId", required = false, defaultValue = "0") Integer userId, Model model) {
-        User user = new User();
-
-        user.setName("Carlos");
-        user.setLastName("Jaramillo");
+        User userAdmin = new User();
+        userAdmin.setName("Carlos");
+        userAdmin.setLastName("Jaramillo");
+        model.addAttribute("userAdmin", userAdmin);
 
         model.addAttribute("userId", userId);
-        model.addAttribute("user", user);
         model.addAttribute("title", "User Profile");
 
         return "user/show";
@@ -42,9 +41,9 @@ public class UserController {
     @ModelAttribute("users")
     public List<User> usersList() {
         List<User> users = Arrays.asList(
-                new User("Carlos", "Jaramillo", "c@xd.com"),
-                new User("Eduardo", "Franco", "e@xd.com"),
-                new User("Tyrone", "Jaramillo", "t@xd.com")
+                new User(0, "Carlos", "Jaramillo", "c@xd.com"),
+                new User(1, "Eduardo", "Franco", "e@xd.com"),
+                new User(2, "Tyrone", "Jaramillo", "t@xd.com")
         );
         return users;
     }

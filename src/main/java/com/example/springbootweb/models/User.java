@@ -2,6 +2,7 @@ package com.example.springbootweb.models;
 
 public class User {
 
+    private Integer id;
     private String name;
     private String lastName;
     private String email;
@@ -9,10 +10,15 @@ public class User {
     public User() {
     }
 
-    public User(String name, String lastName, String email) {
+    public User(Integer id, String name, String lastName, String email) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.email = email;
+    }
+
+    public Integer getId() {
+        return id;
     }
 
     public String getName() {

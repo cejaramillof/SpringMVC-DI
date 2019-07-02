@@ -6,9 +6,12 @@
 </head>
 <body>
     <h1 th:text="${userId}"></h1>
-    <h1 th:text="${user.getName()}"></h1>
-    <h2 th:text="${user.lastName}"></h2>
-    <h3 th:if="${user.email}" th:text="${user.email}"></h3>
-    <h3 th:if="${user.email == null}" th:text="'User don\'t have email'"></h3>
+    <h1 th:text="${userAdmin.getName()}"></h1>
+    <h2 th:text="${userAdmin.lastName}"></h2>
+    <h3 th:if="${userAdmin.email}" th:text="${userAdmin.email}"></h3>
+    <h3 th:if="${userAdmin.email == null}" th:text="'userAdmin don\'t have email'"></h3>
+    <hr/>
+    <h4 th:text="${users.get(userId).getName()}"></h4>
+    <h4 th:text="${users.get(userId).getLastName()}"></h4>
 </body>
 </html>
