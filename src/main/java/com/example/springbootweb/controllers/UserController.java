@@ -6,7 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -15,10 +15,15 @@ public class UserController {
 
     @GetMapping({"/", ""})
     public String index(Model model) {
-        List<User> users = new ArrayList<>();
+        List<User> users = Arrays.asList(
+                new User("Carlos", "Jaramillo", "c@xd.com"),
+                new User("Eduardo", "Franco", "e@xd.com"),
+                new User("Tyrone", "Jaramillo", "t@xd.com")
+        );
 
         model.addAttribute("users", users);
         model.addAttribute("title", "User list");
+
         return "user/index";
     }
 
@@ -32,6 +37,7 @@ public class UserController {
 
         model.addAttribute("user", user);
         model.addAttribute("title", "User Profile");
-        return "show";
+
+        return "user/show";
     }
 }
