@@ -21,7 +21,7 @@ public class UserController {
 
     @GetMapping("/{userId}")
     public String show(@PathVariable Integer userId, Model model) {
-        // RequestParam don't change path
+        // RequestParam don't change path - Both can get multiples params/vars
         // @PathVariable - @RequestParam (name="userId", required = false, defaultValue = "0") Integer userId
         // HttpServletRequest request - from javax.servlet / request.getParameter("paramName") return only string
 
