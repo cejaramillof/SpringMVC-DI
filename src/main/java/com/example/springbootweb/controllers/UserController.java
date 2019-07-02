@@ -3,10 +3,7 @@ package com.example.springbootweb.controllers;
 import com.example.springbootweb.models.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,10 +19,11 @@ public class UserController {
         return "user/index";
     }
 
-    @GetMapping("/show")
-    public String show(@RequestParam Integer userId, Model model) {
+    @GetMapping("/{userId}")
+    public String show(@PathVariable Integer userId, Model model) {
+        // RequestParam don't change path
+        // @PathVariable - @RequestParam (name="userId", required = false, defaultValue = "0") Integer userId
         // HttpServletRequest request - from javax.servlet / request.getParameter("paramName") return only string
-        // @RequestParam(name="userId", required = false, defaultValue = "0") Integer userId
 
         User userAdmin = new User();
         userAdmin.setName("Carlos");

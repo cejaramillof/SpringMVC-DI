@@ -20,7 +20,7 @@
                 <td th:text="${user.name}"></td>
                 <td th:text="${user.lastName}"></td>
                 <td th:text="${user.email}"></td>
-                <td><a th:href="@{/user/show(userId=${user.id})}">show</a></td>
+                <td><a th:href="@{'/user/' + ${user.id}}">show</a></td>
             </tr>
         </tbody>
     </table>
