@@ -23,7 +23,10 @@ public class UserController {
     }
 
     @GetMapping("/show")
-    public String show(@RequestParam(name="userId", required = false, defaultValue = "0") Integer userId, Model model) {
+    public String show(@RequestParam Integer userId, Model model) {
+        // HttpServletRequest request - from javax.servlet / request.getParameter("paramName") return only string
+        // @RequestParam(name="userId", required = false, defaultValue = "0") Integer userId
+
         User userAdmin = new User();
         userAdmin.setName("Carlos");
         userAdmin.setLastName("Jaramillo");
