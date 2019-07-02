@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Arrays;
 import java.util.List;
@@ -22,12 +23,13 @@ public class UserController {
     }
 
     @GetMapping("/show")
-    public String show(Model model) {
+    public String show(@RequestParam(name="userId", required = false, defaultValue = "0") Integer userId, Model model) {
         User user = new User();
 
         user.setName("Carlos");
         user.setLastName("Jaramillo");
 
+        model.addAttribute("userId", userId);
         model.addAttribute("user", user);
         model.addAttribute("title", "User Profile");
 
