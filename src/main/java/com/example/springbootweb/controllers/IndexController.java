@@ -1,6 +1,7 @@
 package com.example.springbootweb.controllers;
 
 import com.example.springbootweb.models.User;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,6 +11,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 @RequestMapping("/app")
 public class IndexController {
+
+    @Value("${application.lolVar}")
+    private String lolVar;
+
+    @Value("${application.xdVar}")
+    private String xdVar;
 
     /**
      * @RequestMapping(value = "/index", method = RequestMethod.GET)
@@ -21,6 +28,10 @@ public class IndexController {
     @GetMapping({"/index", "/"})
     public String index(Model model) {
         model.addAttribute("title", "Spring Index Model");
+
+        model.addAttribute("lolTitle", lolVar);
+        model.addAttribute("xdTitle", xdVar);
+
         return "index";
     }
 
