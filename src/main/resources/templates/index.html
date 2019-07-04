@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8"/>
     <title th:text="${title}"></title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}" />
 </head>
 <body>
-<p th:text="${title}">xd</p>
+<p class="red-text" th:text="${title}">xd</p>
+<p class="blue-text" th:text="${title}">xd</p>
+<img th:src="@{/images/wow.png}"/>
 </body>
 </html>
