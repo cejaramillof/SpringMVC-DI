@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 @RequestMapping("/app")
 public class IndexController {
 
+    // Dependency injection values
     @Value("${application.lolVar}")
     private String lolVar;
 
