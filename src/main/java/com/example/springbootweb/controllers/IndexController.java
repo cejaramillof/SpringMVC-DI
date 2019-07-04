@@ -48,4 +48,16 @@ public class IndexController {
         return mv;
     }
 
+    @GetMapping("/redirect")
+    public String redirect() {
+
+        // reset request params
+        //return "redirect:/app/home";
+
+        // dont reset request params - RequestDispatcher.fordward() from Api servlet
+        //return "forward:/app/home";
+
+        return "redirect:https://google.com";
+    }
+
 }
