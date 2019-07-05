@@ -1,6 +1,7 @@
 package com.example.springbootweb.controllers;
 
-import com.example.springbootweb.models.User;
+import com.example.springbootweb.models.service.FirstService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,13 @@ public class IndexController {
     @Value("${application.xdVar}")
     private String xdVar;
 
+    // Without dependency injection
+    private FirstService service = new FirstService();
+
+    // dependency injection
+    @Autowired
+    private FirstService diService;
+
     /**
      * @RequestMapping(value = "/index", method = RequestMethod.GET)
      *
@@ -29,6 +37,8 @@ public class IndexController {
     @GetMapping({"/index", "/"})
     public String index(Model model) {
         model.addAttribute("title", "Spring Index Model");
+        model.addAttribute("service", service.operation());
+        model.addAttribute("diService", diService.operation());
 
         model.addAttribute("lolTitle", lolVar);
         model.addAttribute("xdTitle", xdVar);
