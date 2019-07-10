@@ -4,13 +4,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.web.context.annotation.ApplicationScope;
+import org.springframework.web.context.annotation.RequestScope;
+import org.springframework.web.context.annotation.SessionScope;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import java.io.Serializable;
 import java.util.List;
 
+// Components and Controllers per default are singleton
 @Component
-public class Invoice {
+//@ApplicationScope
+//@RequestScope
+@SessionScope // Persist in http session should impl serializable - Dont execute predestroy
+public class Invoice implements Serializable {
+
+    private static final long serialVersionUID = -6729102301816590139L;
 
     @Autowired
     private Client client;
