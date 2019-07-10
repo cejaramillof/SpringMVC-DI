@@ -3,6 +3,7 @@ package com.example.springbootweb.controllers;
 import com.example.springbootweb.models.service.FirstService;
 import com.example.springbootweb.models.service.IFirstService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
@@ -38,7 +39,8 @@ public class IndexController {
 
 
     // dependency injection in attribute with interface
-    //@Autowired
+    @Autowired
+    @Qualifier("basicService") // indicate what class inject
     private IFirstService diIService;
 
     /**
@@ -93,8 +95,10 @@ public class IndexController {
 
     // dependency injection in constructor, when is used by constructor can be skip @autowired
     // because when you send any attribute for construct managements by spring he auto inject this.
+    /*
     @Autowired
     public IndexController(IFirstService diIService) {
         this.diIService = diIService;
     }
+    */
 }
