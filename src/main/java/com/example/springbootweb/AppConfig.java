@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 // this class can be used by spring like a beans repository
+// is more used when is external class like from api, frameworks
 // @Configuration
 public class AppConfig {
 
