@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.List;
 
 @Component
@@ -20,6 +22,18 @@ public class Invoice {
     @Value("${invoice.description}")
     private String description;
 
+    // post construct for spring container
+    @PostConstruct
+    public void init() {
+        client.setName(client.getName().concat(" ").concat("Eduardo"));
+        description = description.concat(" of client: ").concat(client.getName());
+    }
+
+    // pre destroy for spring container
+    @PreDestroy
+    public void destroy() {
+        System.out.println("Invoice destroyed ".concat(description));
+    }
 
     public String getDescription() {
         return description;
