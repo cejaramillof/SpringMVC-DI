@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 // this class can be used by spring like a beans repository
-@Configuration
+// @Configuration
 public class AppConfig {
 
     @Bean("name")

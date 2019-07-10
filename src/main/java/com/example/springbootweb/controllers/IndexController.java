@@ -37,8 +37,8 @@ public class IndexController {
     private FirstService diService;
 
 
-    // dependency injection with interface
-    @Autowired
+    // dependency injection in attribute with interface
+    //@Autowired
     private IFirstService diIService;
 
     /**
@@ -85,4 +85,16 @@ public class IndexController {
         return "redirect:https://google.com";
     }
 
+    // dependency injection in set
+    //@Autowired
+    public void setDiIService(IFirstService diIService) {
+        this.diIService = diIService;
+    }
+
+    // dependency injection in constructor, when is used by constructor can be skip @autowired
+    // because when you send any attribute for construct managements by spring he auto inject this.
+    @Autowired
+    public IndexController(IFirstService diIService) {
+        this.diIService = diIService;
+    }
 }
