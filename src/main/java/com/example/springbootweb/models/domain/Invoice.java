@@ -17,6 +17,7 @@ import java.util.List;
 @Component
 //@ApplicationScope
 //@RequestScope
+// Prototype Scope - usualy for standalone applications (like bash apps) multiples instances in container
 @SessionScope // Persist in http session should impl serializable - Dont execute predestroy
 public class Invoice implements Serializable {
 
