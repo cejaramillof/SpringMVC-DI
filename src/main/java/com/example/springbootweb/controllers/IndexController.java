@@ -4,12 +4,20 @@ import com.example.springbootweb.models.service.FirstService;
 import com.example.springbootweb.models.service.IFirstService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+/*
+Stereotypes
+@Component - Generic for any component management by spring
+@Repository - Data Access Component DAOs, Persist
+@Service - Business logic, Services, multiples daos
+@Controller - MVC Controllers
+ */
 @Controller
 @RequestMapping("/app")
 public class IndexController {
