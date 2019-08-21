@@ -23,6 +23,8 @@ Stereotypes
 @RequestMapping("/app")
 public class IndexController {
 
+    public static final String CONSTANT_EXAMPLE = "Constant example string";
+
     // Dependency injection values
     @Value("${application.lolVar}")
     private String lolVar;
@@ -33,7 +35,7 @@ public class IndexController {
     // Without dependency injection
     private FirstService service = new FirstService();
 
-    // dependency injection
+    // dependency injection (singleton)
     @Autowired
     private FirstService diService;
 
