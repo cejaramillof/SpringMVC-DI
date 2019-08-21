@@ -1,0 +1,6 @@
+  # framework config in yml (db, jpa, port)
+  client:
+    name: Carlos
+    lastName: Jaramillo
+  invoice:
+    description: First invoice YML
