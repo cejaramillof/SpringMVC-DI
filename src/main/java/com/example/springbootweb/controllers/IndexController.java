@@ -36,6 +36,10 @@ public class IndexController {
     private FirstService service = new FirstService();
 
     // dependency injection (singleton)
+    // Hollywood principle
+    // Dependency injection is to assign an obj da reference of another like a attribute of this
+    // low coupling
+    // All beans injected need have empty constructor
     @Autowired
     private FirstService diService;
 
@@ -49,6 +53,7 @@ public class IndexController {
      * @RequestMapping(value = "/index", method = RequestMethod.GET)
      *
      * Model is an interface with some abstract methods (it goes throught argument aa implementation of this interface)
+     * ModelMap (class) implement is equals to this.
      * @param model
      * @return
      */
@@ -66,7 +71,7 @@ public class IndexController {
     }
 
     /**
-     * Implement ModelMap
+     * Implement ModelMap (class) and view to unifique return
      * @param mv
      * @return
      */
